@@ -5,7 +5,13 @@ export default {
     './index.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#00d0ea',
+        'card': '#101727',
+        'background': '#0c1221'
+      },
+    },
   },
   plugins: [],
 };
