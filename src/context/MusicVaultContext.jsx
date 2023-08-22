@@ -6,6 +6,8 @@ export default function MusicVaultProvider({ children }) {
   const [musicVault, setMusicVault] = useState(
     JSON.parse(localStorage.getItem("musicVault")) || []
   );
+
+  console.log(musicVault);
   
   return (
     <MusicVaultContext.Provider value={{ musicVault, setMusicVault }}>
@@ -17,13 +19,16 @@ export default function MusicVaultProvider({ children }) {
 export function useMusicVault() {
   const { musicVault, setMusicVault } = useContext(MusicVaultContext);
 
-  function contains(id) {
-    return musicVault.includes(id);
+  function contains(item) {
+    return musicVault.some((vaultItem) => vaultItem.vaultId === `${item.id}-${item.type}`);
   }
 
   function add(itemToAdd) {
     setMusicVault((prevValue) => {
-      const newValue = [...prevValue, itemToAdd];
+      const newValue = [...prevValue, {
+        ...itemToAdd,
+        vaultId: `${itemToAdd.id}-${itemToAdd.type}`
+      }];
       localStorage.setItem("musicVault", JSON.stringify(newValue));
       return newValue;
     });
@@ -31,7 +36,7 @@ export function useMusicVault() {
 
   function remove(itemToRemove) {
     setMusicVault((prevValue) => {
-      const newValue = prevValue.filter((item) => item.id !== itemToRemove.id);
+      const newValue = prevValue.filter((item) => item.vaultId !== `${itemToRemove.id}-${itemToRemove.type}`);
       localStorage.setItem("musicVault", JSON.stringify(newValue));
       return newValue;
     });

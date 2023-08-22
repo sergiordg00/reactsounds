@@ -6,15 +6,15 @@ import { useMusicVault } from "@/context/MusicVaultContext";
 
 export default function MusicVaultButton({ data, className }) {
   const { contains, add, remove } = useMusicVault();
-  const [isInVault, setIsInVault] = useState(contains(`${data.type}-${data.id}`));
+  const [isInVault, setIsInVault] = useState(contains(data));
 
   function addToVault() {
-    add(`${data.type}-${data.id}`);
+    add(data);
     setIsInVault(true);
   }
 
   function removeFromVault() {
-    remove(`${data.type}-${data.id}`);
+    remove(data);
     setIsInVault(false);
   }
 
