@@ -1,0 +1,36 @@
+.fhslider__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.fhslider__viewport {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fhslider__viewport::-webkit-scrollbar {
+  display: none
+}
+
+.fhslider__viewport > * {
+  flex-shrink: 0;
+}
+
+.fhslider__controls {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .fhslider__container:hover .fhslider__controls.active {
+    opacity: 1;
+    visibility: visible; /** This does not trigger a reflow, only a repaint, which is faster */
+  }
+}
