@@ -51,6 +51,12 @@ export default function GenericAudioPlayer({ initialMode="normal", initialTrack=
   function _onVolumeSlideChange(e) {
     audioPlayer.current.volume = e.target.value;
     setVolume(e.target.value);
+
+    if(+e.target.value === 0) {
+      muteAudio();
+    } else if(isMuted) {
+      unmuteAudio();
+    }
   }
 
   function _onLoadedMetadata() {
@@ -157,10 +163,17 @@ export default function GenericAudioPlayer({ initialMode="normal", initialTrack=
 
   function muteAudio() {
     setIsMuted(true);
+    setVolume(0);
   }
 
   function unmuteAudio() {
     setIsMuted(false);
+
+    if(audioPlayer.current.volume === 0) {
+      audioPlayer.current.volume = 1;
+    }
+    
+    setVolume(audioPlayer.current.volume);
   }
 
   return (

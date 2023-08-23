@@ -29,16 +29,16 @@ export default function DataCard({ data, className }) {
 
       {
         data.type === "artist" ?
-          <p className="dots-on-overflow w-full text-center text-base text-white">
+          <p className="w-full truncate text-center text-base text-white">
             {data.name}
           </p>
           :
           <>
-            <p className="dots-on-overflow text-[15px] text-white">
+            <p className="truncate text-[15px] text-white">
               {data.title}
             </p>
 
-            <p className="dots-on-overflow text-[14px] text-gray-400">
+            <p className="truncate text-[14px] text-gray-400">
               {data.artist.name}
             </p>
           </>

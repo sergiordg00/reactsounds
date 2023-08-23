@@ -6,8 +6,6 @@ export default function MusicVaultProvider({ children }) {
   const [musicVault, setMusicVault] = useState(
     JSON.parse(localStorage.getItem("musicVault")) || []
   );
-
-  console.log(musicVault);
   
   return (
     <MusicVaultContext.Provider value={{ musicVault, setMusicVault }}>
