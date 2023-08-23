@@ -42,7 +42,7 @@ export default function DataCard({ data, className }) {
             </p>
 
             <p className="truncate text-[14px] text-gray-400">
-              {data.artist.name}
+              {data.artist?.name || data.user?.name}
             </p>
           </>
       }

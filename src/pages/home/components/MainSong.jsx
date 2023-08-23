@@ -34,7 +34,7 @@ export default function MainSong() {
             onSubmit={onSubmit} 
             className="flex w-full max-w-[500px] items-center gap-x-2 rounded-full bg-white/10 p-3 backdrop-blur-sm"
           >
-            <BsSearch className="text-lg text-white/40"/>
+            <BsSearch className="shrink-0 text-lg text-white/40"/>
 
             <input
               type="text"

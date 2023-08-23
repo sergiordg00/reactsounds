@@ -67,7 +67,7 @@ export default function FHSlider({ children, gapX="gap-x-3 sm:gap-x-4" }) {
           onClick={slidePrev}
           className={clsx(
             "fhslider__controls prev",
-            "left-0 z-10 flex shrink-0 items-center justify-center rounded-full border border-white bg-primary text-white",
+            "left-0 z-10 flex shrink-0 items-center justify-center rounded-full border border-card bg-primary text-card",
             "h-[35px] w-[35px] md:h-[40px] md:w-[40px]",
             displayPrev && "active"
           )} 
@@ -80,7 +80,7 @@ export default function FHSlider({ children, gapX="gap-x-3 sm:gap-x-4" }) {
           onClick={slideNext}
           className={clsx(
             "fhslider__controls prev",
-            "right-0 z-10 flex shrink-0 items-center justify-center rounded-full border border-white bg-primary text-white",
+            "right-0 z-10 flex shrink-0 items-center justify-center rounded-full border border-card bg-primary text-card",
             "h-[35px] w-[35px] md:h-[40px] md:w-[40px]",
             displayNext && "active"
           )} 
