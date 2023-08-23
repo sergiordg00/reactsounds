@@ -1,14 +1,17 @@
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 
+import { useAudioPlayer } from "@/context/AudioPlayerContext";
+
 import Cover from "./Cover";
 
 export default function DataCard({ data, className }) {
+  const { initPlayerWithTracks } = useAudioPlayer();
   const navigate = useNavigate();
 
   function handleClick() {
     if(data.type === "track") {
-      // TODO: PUT THE TRACK IN THE PLAYER
+      initPlayerWithTracks([data]);
     } else {
       navigate(`/${data.type}/${data.id}`);
     }

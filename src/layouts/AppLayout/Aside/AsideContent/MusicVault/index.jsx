@@ -1,4 +1,5 @@
 import EmptyVault from "./components/EmptyVault";
+import VaultItem from "./components/VaultItem";
 
 export default function MusicVault({ data }) {
   if(data.length === 0) {
@@ -7,8 +8,10 @@ export default function MusicVault({ data }) {
     );
   } else {
     return (
-      <div className="">
-        Aqui un .map de VaultItem component. first we will do the player logic.
+      <div className="h-0 w-full grow overflow-y-auto">
+        {data.map((item) => (
+          <VaultItem key={item.id} data={item}/>
+        ))}
       </div>
     );
   }
