@@ -10,7 +10,7 @@ export default function MusicVault({ data }) {
     return (
       <div className="h-0 w-full grow overflow-y-auto">
         {data.map((item) => (
-          <VaultItem key={item.id} data={item}/>
+          <VaultItem key={item.vaultId} data={item}/>
         ))}
       </div>
     );

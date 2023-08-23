@@ -15,7 +15,7 @@ export default function TrackInfo({ data, isPlaying }) {
       )}
 
       <img 
-        src={data.album.cover_small} 
+        src={data.album.cover_xl} 
         alt="Track's Album Cover" 
         className="aspect-square w-14 shrink-0 bg-gray-500 object-cover object-center" 
       />

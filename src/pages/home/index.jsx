@@ -2,6 +2,8 @@ import { useAside } from "@/context/AsideContext";
 import { useAudioPlayer } from "@/context/AudioPlayerContext";
 import MusicVaultButton from "@/shared-components/buttons/MusicVaultButton";
 
+import MainSong from "./components/MainSong";
+
 export default function Home() {
   const { setIsAsideOpen } = useAside();
   const { initPlayerWithTracks } = useAudioPlayer();
@@ -281,61 +283,64 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex w-full flex-col gap-y-6 p-5">
-      <button className="w-fit rounded-lg bg-sky-500 px-3 py-2" onClick={() => setIsAsideOpen(true)}>
-        Open aside
-      </button>
-
-      <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
-        <MusicVaultButton
-          data={track}
-          className="w-[20px]"
-        />
-
-        <p className="text-white">
-          Track button
-        </p>
-      </div>
-
-      <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
-        <MusicVaultButton
-          data={artist}
-          className="w-[20px]"
-        />
-
-        <p className="text-white">
-          Artist button
-        </p>
-      </div>
-
-      <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
-        <MusicVaultButton
-          data={playlist}
-          className="w-[20px]"
-        />
-
-        <p className="text-white">
-          Playlist button
-        </p>
-      </div>
-
-      <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
-        <MusicVaultButton
-          data={album}
-          className="w-[20px]"
-        />
-
-        <p className="text-white">
-          Album button
-        </p>
-      </div>
-
-      <button 
-        className="w-fit rounded-lg bg-sky-500 px-3 py-2"
-        onClick={() => initPlayerWithTracks(tracks, 0)}
-      >
-        Init player with tracks starting at 0
-      </button>
+    <div className="min-h-full w-full">
+      <MainSong />
     </div>
+    // <div className="flex w-full flex-col gap-y-6 p-5">
+    //   <button className="w-fit rounded-lg bg-sky-500 px-3 py-2" onClick={() => setIsAsideOpen(true)}>
+    //     Open aside
+    //   </button>
+
+  //   <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
+  //     <MusicVaultButton
+  //       data={track}
+  //       className="w-[20px]"
+  //     />
+
+  //     <p className="text-white">
+  //       Track button
+  //     </p>
+  //   </div>
+
+  //   <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
+  //     <MusicVaultButton
+  //       data={artist}
+  //       className="w-[20px]"
+  //     />
+
+  //     <p className="text-white">
+  //       Artist button
+  //     </p>
+  //   </div>
+
+  //   <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
+  //     <MusicVaultButton
+  //       data={playlist}
+  //       className="w-[20px]"
+  //     />
+
+  //     <p className="text-white">
+  //       Playlist button
+  //     </p>
+  //   </div>
+
+  //   <div className="flex w-fit cursor-pointer gap-x-3 rounded-lg p-2 transition hover:bg-gray-800">
+  //     <MusicVaultButton
+  //       data={album}
+  //       className="w-[20px]"
+  //     />
+
+  //     <p className="text-white">
+  //       Album button
+  //     </p>
+  //   </div>
+
+  //   <button 
+  //     className="w-fit rounded-lg bg-sky-500 px-3 py-2"
+  //     onClick={() => initPlayerWithTracks(tracks, 0)}
+  //   >
+  //     Init player with tracks starting at 0
+  //   </button>
+  // </div>
   );
 }
