@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
+import { useAside } from "@/context/AsideContext";
 import { useAudioPlayer } from "@/context/AudioPlayerContext";
 import Cover from "@/shared-components/cards/Cover";
 
 export default function VaultItem({ data }) {
+  const { setIsAsideOpen } = useAside();
   const { initPlayerWithTracks } = useAudioPlayer();
   const navigate = useNavigate();
 
@@ -13,6 +15,8 @@ export default function VaultItem({ data }) {
     } else {
       navigate(`/${data.type}/${data.id}`);
     }
+
+    setIsAsideOpen(false);
   }
 
   function getType() {

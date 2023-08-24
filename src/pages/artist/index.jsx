@@ -8,8 +8,6 @@ export default function Artist() {
   const { data, loading } = useFetch(`/artist/${id}`);
   const { data: tracks, loading: tracksLoading } = useFetch(`/artist/${id}/top?limit=50`);
 
-  console.log(data, tracks);
-
   return (
     <DetailsPage
       data={data}

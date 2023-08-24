@@ -7,7 +7,7 @@ import DataHandler from "./DataHandler";
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState({
-    q: searchParams.get("q") || "",
+    q: searchParams.get("q") || "a",
   });
 
   useEffect(() => {

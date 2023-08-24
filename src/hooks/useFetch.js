@@ -13,17 +13,8 @@ export default function useFetch(endpoint) {
   async function fetchData() {
     setLoading(true);
 
-    let myHeaders = new Headers();
-
-    myHeaders.append("X-Requested-With", "XMLHttpRequest");
-    
-    let requestOptions = {
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
     try {
-      const data = await fetch(`${config.env.PROXY_URL}/${config.env.API_URL}${endpoint}`, requestOptions).then(res => res.json());
+      const data = await fetch(`${config.env.API_URL}${endpoint}`).then(res => res.json());
 
       cacheClient.set(endpoint, data);
       
