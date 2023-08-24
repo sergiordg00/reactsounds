@@ -13,20 +13,23 @@ export default function Header({ data }) {
 
         <div className="flex flex-col justify-end gap-y-3 min-[900px]:gap-y-4">
           <h1 className="text-center text-4xl font-bold text-white min-[900px]:text-start min-[900px]:text-6xl">
-            {data.title}
+            {data.title || data.name}
           </h1>
 
           <p className="text-center text-sm font-semibold text-white min-[900px]:text-start min-[900px]:text-base">
             <span className="font-normal text-gray-400">
-              {data.type === "album" ? "Album by" : "Created by"}
+              {data.type === "album" ? "Album by" : data.type === "playlist" ? "Created by" : "Artist"}
             </span>
 
-            &nbsp;
+            {data.type !== "artist" && (
+              <>
+                &nbsp;
 
-            {data.artist?.name || data.creator?.name}
+                {data.artist?.name || data.creator?.name}
+              </>
+            )}
           </p>
         </div>
-
       </div>
     </header>
   );
