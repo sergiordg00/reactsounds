@@ -14,7 +14,7 @@ export default function useFetch(endpoint) {
     setLoading(true);
 
     try {
-      const data = await fetch(`${config.env.PROXY_URL}/${config.env.API_URL}${endpoint}`).then(res => res.json());
+      const data = await fetch(`${config.env.PROXY_URL}${config.env.API_URL}${endpoint}`).then(res => res.json());
 
       cacheClient.set(endpoint, data);
       
