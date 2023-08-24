@@ -4,7 +4,7 @@ export default function Cover({ data, className }) {
   if(data.type === "track") {
     return (
       <img 
-        src={data.album.cover_xl}
+        src={data.album.cover_medium}
         alt="Track's Album Cover" 
         className={clsx(
           "aspect-square shrink-0 bg-gray-500 object-cover object-center",
@@ -15,7 +15,7 @@ export default function Cover({ data, className }) {
   } else if(data.type === "artist") {
     return (
       <img 
-        src={data.picture_xl}
+        src={data.picture_medium}
         alt="Artist's Picture" 
         className={clsx(
           "aspect-square shrink-0 rounded-full bg-gray-500 object-cover object-center",
@@ -30,7 +30,7 @@ export default function Cover({ data, className }) {
         className
       )}>
         <img 
-          src={data.picture_xl || data.cover_xl}
+          src={data.picture_medium || data.cover_medium}
           alt="Cover"
           className={clsx(
             "relative z-[2] aspect-square rounded-md bg-gray-500 object-cover object-center",
