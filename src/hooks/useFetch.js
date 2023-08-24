@@ -24,6 +24,7 @@ export default function useFetch(endpoint) {
       }
     } catch(err) {
       setError(true);
+      setLoading(false);
     }
   }
 
