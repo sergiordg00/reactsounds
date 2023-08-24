@@ -3,6 +3,9 @@ import { useRef, useState } from 'react';
 /* 
   TODO: IF I WANTED TO HAVE A RANDOM MODE, IT WOULD BE AS EASY AS GENERATE A RANDOM SORTED ARRAY ON INIT OR EVERY TIME @tracks change.
   By tracks change i mean "adding or removing" songs. If i click another different playlist, it should init again (as key attribute will change)
+
+  @note -> Me encantaria tener alguna forma de arquitecturarlo mejor. En vez que todo el estado interno del player este aqui, me gustaria que dicho estado estuviera centralizado en un unico sitio
+  y este componente lo recibiese. De esta manera, podriamos compartir ese estado al resto de componentes que lo necesiten y poder realizar muchas cosas (mediante context, por ejemplo). Pero de momento esto me vale.
 */
 export default function GenericAudioPlayer({ initialMode="normal", initialTrack=0, initialAudioState="paused", tracks=[], onNextTrack=null, onPrevTrack=null, children }) {
   const [mode, setMode] = useState(initialMode);

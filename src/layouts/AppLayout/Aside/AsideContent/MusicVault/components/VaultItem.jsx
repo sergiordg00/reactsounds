@@ -40,7 +40,7 @@ export default function VaultItem({ data }) {
         </p>
 
         <p className="mt-1 truncate text-xs text-gray-400">
-          {getType()} &bull; {data.artist?.name || data.user?.name || data.name}
+          {getType()} &bull; {data.artist?.name || data.user?.name || data.creator?.name || data.name}
         </p>
       </div>
     </div>

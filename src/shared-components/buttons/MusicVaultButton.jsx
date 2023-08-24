@@ -23,7 +23,7 @@ export default function MusicVaultButton({ data, className }) {
       type="button"
       onClick={isInVault ? removeFromVault : addToVault}
       className={clsx(
-        "flex aspect-square shrink-0 items-center justify-center",
+        "flex aspect-square shrink-0 items-center justify-center hover:opacity-75",
         className
       )}
     >

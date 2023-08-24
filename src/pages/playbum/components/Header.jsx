@@ -1,7 +1,6 @@
 import Cover from "@/shared-components/cards/Cover";
 
 export default function Header({ data }) {
-  console.log(data);
   return (
     <header 
       className="relative flex min-h-[340px] w-full items-end overflow-y-auto bg-background bg-cover bg-center bg-no-repeat p-6 min-[900px]:min-h-[400px] min-[900px]:p-10"
