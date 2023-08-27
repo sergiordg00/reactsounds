@@ -6,6 +6,10 @@ import { useRef, useState } from 'react';
 
   @note -> Me encantaria tener alguna forma de arquitecturarlo mejor. En vez que todo el estado interno del player este aqui, me gustaria que dicho estado estuviera centralizado en un unico sitio
   y este componente lo recibiese. De esta manera, podriamos compartir ese estado al resto de componentes que lo necesiten y poder realizar muchas cosas (mediante context, por ejemplo). Pero de momento esto me vale.
+
+  Realmente, la mejor opcion seria que este componente fuese el que estuviese el mas arriba en el render tree y fuera el que tuviera la logica del context. Asi, exportariamos todos estos valores y podriamos añadir aqui la capa
+  de funcionalidad y asi estarian todos estos valores disponibles globalmente. Pero para este proyecto esto me sirve. Pero de cara a un futuro, me gustaria tenerlo en cuenta. Asi que, en vez de retornar children(), retornaria
+  un contexto y ya luego accederia al valor que quisiera en cualquier componente del render tree.
 */
 export default function GenericAudioPlayer({ initialMode="normal", initialTrack=0, initialAudioState="paused", tracks=[], onNextTrack=null, onPrevTrack=null, children }) {
   const [mode, setMode] = useState(initialMode);
