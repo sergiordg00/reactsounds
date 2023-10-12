@@ -10,6 +10,17 @@ import { useRef, useState } from 'react';
   Realmente, la mejor opcion seria que este componente fuese el que estuviese el mas arriba en el render tree y fuera el que tuviera la logica del context. Asi, exportariamos todos estos valores y podriamos añadir aqui la capa
   de funcionalidad y asi estarian todos estos valores disponibles globalmente. Pero para este proyecto esto me sirve. Pero de cara a un futuro, me gustaria tenerlo en cuenta. Asi que, en vez de retornar children(), retornaria
   un contexto y ya luego accederia al valor que quisiera en cualquier componente del render tree.
+
+  Edit: Ya se como hacerlo. Todo estara extrapolado en un custom hook. Cada vez que importes ese hook será como inicializar un reproductor de música y ya luego eres libre de crear la UI que quieras. Si tiene que ser el patron
+  render props en vez de un custom hook (porque debemos de tener una etiqueta audio) pues igual. El planteamiento debe de ser ese. Cada vez que lo importas defines un reproductor musical. Para este caso, es sencillo:
+  Inicializas un reproductor musical. Lo defines en un contexto y usando el contexto compartes a todo el render tree los atributos del custom hook. Asi, luego defines la UI en la parte que quieras y luego en cualquier parte del render tree tmabien
+  podran manipular el reproductor. Por lo tanto ese es el palntemianto. Creas el reproductor, compartes al render tree las propiedades. Y ya luego es crear su UI (usando las propiedades del reproductor que se generan al importar el hook y son compartidas en el contexto) y ya luego
+  tambien tendrías la posibilidad de manipularlo donde sea. Ahora bien, deberíamos de añadir un useState que contenga los tracks. De esta manera ya tendríamos todo en un mismo sitio.
+
+  Esto es una mejora porque tal y como lo tengo ahora, la lógica siempre esta pegada en la UI. SIEMPRE. No tenemos forma de separar lógica de UI. Estoy inicializando el reproductor en el mismo sitio donde defino su UI. Con el plantemiento de arriba,
+  podría definir la instanciación del reproductor muy arriba en el render tree, y luego en cualquier parte del render tree simplemente crearme un componente que consume los valores del reproductor y los usa para crear la UI. ESTO ES GENIAL!
+
+  Edit: Para lo del random, lo que haría seria generar una semilla (que se resetearía cada vez que cambie tracks) ya que esto nos garantiza que en un mismo set nunca se repite el mismo numero. Por eso las semillas!
 */
 export default function GenericAudioPlayer({ initialMode="normal", initialTrack=0, initialAudioState="paused", tracks=[], onNextTrack=null, onPrevTrack=null, children }) {
   const [mode, setMode] = useState(initialMode);
